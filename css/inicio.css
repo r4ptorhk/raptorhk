@@ -1,0 +1,150 @@
+/* Estilos base */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0d0d0d;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Encabezado */
+header {
+  background: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.8rem;
+  color: #00ffcc;
+  font-weight: 600;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+nav a, .social-icons a {
+  color: #00ffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover, .social-icons a:hover {
+  color: #ff00ff;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Sección principal */
+.hero {
+  padding: 4rem 2rem;
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #cccccc;
+}
+
+.hero-buttons .btn {
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #00ffcc;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.hero-buttons .btn:hover {
+  background: #00e6b8;
+  transform: scale(1.05);
+}
+
+/* Galería */
+.galeria {
+  padding: 3rem 2rem;
+  background-color: #121212;
+}
+
+.galeria h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #00ffff;
+}
+
+.art-card {
+  background: #1a1a1a;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  max-width: 320px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.art-card:hover {
+  transform: translateY(-5px);
+}
+
+.art-card img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+/* Pie de página */
+footer {
+  background: #111;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: #00ffff;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.footer-links a:hover {
+  color: #ff00ff;
+}
+
+/* Botón volver */
+.btn.volver {
+  display: inline-block;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  background: #00ffcc;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn.volver:hover {
+  background: #00e6b8;
+}
+

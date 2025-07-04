@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #0f0f0f;
+  color: #f0f0f0;
+}
+
+header {
+  background: linear-gradient(90deg, #0ff, #00f);
+  padding: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+}
+
+.tabs {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.tabs input[type="radio"] {
+  display: none;
+}
+
+.tabs label {
+  background: #222;
+  color: #0ff;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.tabs input[type="radio"]:checked + label {
+  background: #0ff;
+  color: #000;
+}
+
+.tab-content {
+  display: none;
+  margin-top: 1rem;
+}
+
+#tab-arte:checked ~ #content-arte,
+#tab-juegos:checked ~ #content-juegos,
+#tab-retos:checked ~ #content-retos {
+  display: block;
+}
+
+.post {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid #0ff;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.comment-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.user-avatar {
+  font-size: 1.5rem;
+}
+
+textarea {
+  flex: 1;
+  padding: 0.5rem;
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #0ff;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+button {
+  background: #00f;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0ff;
+  color: #000;
+}
+
+.reactions {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
