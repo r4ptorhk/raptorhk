@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArtKen | Inicio</title>
+  <link rel="stylesheet" href="css/arriba.css">
+</head>
+<body>
+
+  <nav>
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">🏠 Inicio</a></li>
+      <li><a href="sobre-mi.html">👤 Sobre Mí</a></li>
+      <li><a href="servicios.html">🛒 Servicios</a></li>
+      <li><a href="portafolio.html">🎨 Portafolio</a></li>
+      <li><a href="comunidad.html">🗣 Comunidad</a></li>
+      <li><a href="contacto.html">📩 Contacto</a></li>
+      <li><a href="sugerencias.html">📝 Sugerencias</a></li>
+    </ul>
+
+    <div class="social-icons">
+      <a href="https://kick.com/raptorhk" target="_blank" title="Kick">
+        <img src="https://img.freepik.com/premium-vector/kick-logo-vector-download-kick-streaming-icon-logo-vector-eps_691560-10814.jpg?w=2000" alt="Kick" class="icon">
+      </a>
+      <a href="https://instagram.com/artken.n" target="_blank" title="@artken.n">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="icon">
+      </a>
+    </div>
+  </nav>
+  </main>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sugerencias y Feedback</title>
+  <link rel="stylesheet" href="css/sugerencias.css" />
+</head>
+<body>
+  <header>
+    <h1>📝 Tu Voz, Tu Arte</h1>
+    <p>Propon ideas, vota y haz crecer esta comunidad creativa.</p>
+  </header>
+
+  <main>
+    <section class="formulario">
+      <h2>💡 Proponer una Idea</h2>
+      <form id="sugerenciaForm">
+        <label for="nombre">Nombre o Alias:</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="idea">Tu Idea o Sugerencia:</label>
+        <textarea id="idea" name="idea" rows="4" required></textarea>
+
+        <label for="categoria">Categoría:</label>
+        <select id="categoria" name="categoria">
+          <option>Diseño</option>
+          <option>Colaboración</option>
+          <option>Merch</option>
+          <option>Otro</option>
+        </select>
+
+        <label>¿Quieres que te mencionemos si se usa tu idea?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="mencion" value="sí" required /> Sí</label>
+          <label><input type="radio" name="mencion" value="no" /> No</label>
+        </div>
+
+        <button type="submit">Enviar Sugerencia</button>
+      </form>
+    </section>
+
+    <section class="ideas">
+      <h2>🌟 Muro de Ideas</h2>
+      <div class="idea">
+        <p><strong>@PixelDreamer:</strong> ¡Haz una serie de stickers con criaturas mitológicas en estilo glow art!</p>
+        <div class="votos">
+          <span onclick="votar(this)">🔥</span>
+          <span onclick="votar(this)">💡</span>
+          <span onclick="votar(this)">❤️</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>✨ Gracias por ser parte de esta comunidad creativa ✨</p>
+  </footer>
+
+  <script>
+    function votar(el) {
+      el.classList.toggle("votado");
+    }
+
+    document.getElementById("sugerenciaForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("¡Gracias por tu sugerencia! 🎉");
+      this.reset();
+    });
+  </script>
+</body>
+</html>

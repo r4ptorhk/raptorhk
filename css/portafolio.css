@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0d0d0d;
+  color: #f0f0f0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+a {
+  color: #00ffff;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  color: #00ffff;
+  text-shadow: 0 0 15px #00ffff;
+}
+
+header p {
+  color: #ccc;
+  font-size: 1.2rem;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.imagen {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #00ffff33;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.imagen img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.imagen img:hover {
+  transform: scale(1.05);
+}
+
+.like-checkbox {
+  display: none;
+}
+
+.like-label {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.icono-corazon {
+  width: 30px;
+  height: 30px;
+  fill: #888;
+  transition: fill 0.3s ease, transform 0.2s ease;
+}
+
+.like-checkbox:checked + .like-label .icono-corazon {
+  fill: #ff3040;
+  transform: scale(1.2);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 0 40px #00ffffaa;
+  animation: zoomIn 0.4s ease;
+}
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+/* 🧩 Elementos Especiales */
+.btn-glow {
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  color: #0d0d0d;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 15px #ff00ff88;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #ff00ffcc;
+}
+
+.glow-box {
+  background: #1a1a1a;
+  border: 2px solid #ff00ff;
+  box-shadow: 0 0 20px #ff00ff55;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.glow-box:hover {
+  transform: scale(1.03);
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  fill: #00ffff;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.icon:hover {
+  transform: rotate(10deg);
+  filter: drop-shadow(0 0 6px #00ffffaa);
+}
+
+/* ✨ Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 📱 Responsive (≤600px) */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .galeria {
+    gap: 16px;
+  }
+
+  .imagen {
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00ffff33;
+  }
+
+  .imagen img {
+    border-radius: 8px;
+  }
+
+  .icono-corazon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .btn-glow {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  footer {
+    font-size: 0.85rem;
+    padding: 0 10px;
+  }
+}
