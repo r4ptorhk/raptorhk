@@ -1,0 +1,156 @@
+/* 🌑 Base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #00ffcc;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  animation: fadeIn 1s ease-in;
+}
+
+/* 🔗 Enlaces */
+a {
+  color: #66ccff;
+  text-decoration: none;
+  transition: text-decoration 0.3s;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 🧩 Botones */
+.cta-button,
+.btn-glow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #00ffcc, #00bfa6);
+  color: #121212;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 255, 204, 0.4);
+}
+
+.cta-button:hover,
+.btn-glow:hover {
+  background-color: #00e6b8;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ffcc;
+}
+
+/* 🧩 Cajas brillantes */
+.glow-box {
+  background-color: #1e1e1e;
+  border: 2px solid #ff66cc;
+  box-shadow: 0 0 15px rgba(255, 102, 204, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glow-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px #ff66cc;
+}
+
+/* 🧩 Iconos */
+.icon {
+  height: 24px;
+  margin-right: 10px;
+  vertical-align: middle;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.icon:hover {
+  transform: rotate(10deg) scale(1.1);
+  filter: drop-shadow(0 0 5px #00ffcc);
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  ul li {
+    font-size: 14px;
+  }
+
+  .cta-button,
+  .btn-glow {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .quick-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ✨ Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📍 Footer */
+.footer {
+  text-align: center;
+  margin-top: 60px;
+  padding: 30px;
+  background-color: #1f1f1f;
+  border-top: 1px solid #333;
+}
+
+.footer p {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.paypal-logo {
+  height: 24px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
