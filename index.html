@@ -49,6 +49,17 @@
 </html>
 
 
+<?php
+  // Contador de visitas
+  $archivo = "contador.txt";
+  if (file_exists($archivo)) {
+    $visitas = (int)file_get_contents($archivo);
+  } else {
+    $visitas = 0;
+  }
+  $visitas++;
+  file_put_contents($archivo, $visitas);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -56,6 +67,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Inicio | ArtKen</title>
   <link rel="stylesheet" href="css/estilos.css" />
+  <style>
+    .contador-visitas {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 1.2rem;
+      color: #444;
+    }
+  </style>
 </head>
 <body>
 
@@ -89,6 +108,11 @@
         <li>📩 Formulario de contacto para colaboraciones</li>
       </ul>
     </section>
+
+    <!-- Contador de visitas -->
+    <div class="contador-visitas">
+      👁️ Visitas totales: <strong><?php echo $visitas; ?></strong>
+    </div>
   </main>
 
   <footer class="footer">
@@ -99,11 +123,10 @@
     </a>
   </footer>
 
-<!-- 100% privacy-first analytics -->
-<script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade"/></noscript>
-
-
+  <!-- Contador de visitas con Counter.dev -->
+  <script src="https://cdn.counter.dev/script.js" 
+          data-id="33671ad4-a966-4a52-b48f-56c92d10a678" 
+          data-utcoffset="-4"></script>
 
 </body>
 </html>
