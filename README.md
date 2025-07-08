@@ -1,7 +1,15 @@
-# Proyecto RaptorHK
+## 🚀 Sobre el proyecto
+Proyecto universitario para mostrar habilidades en desarrollo web y diseño visual.
 
-¡Hola! Este es un proyecto de la uni :3
+## 🛠️ Tecnologías usadas
+- HTML5
+- CSS3
+- JavaScript
+- Firebase Firestore
 
 ## 📷 Captura de pantalla
+![Captura de pantalla](https://i.postimg.cc/JzPQ0t3j/Captura-de-pantalla-2025-07-06-153153.png)
 
-https://i.postimg.cc/JzPQ0t3j/Captura-de-pantalla-2025-07-06-153153.png
+## 📬 Contacto
+Sígueme en Instagram: [@artken.n](https://instagram.com/artken.n)  
+Sígueme en Kick: [@raptorhk](https://kick.com/raptorhk)
