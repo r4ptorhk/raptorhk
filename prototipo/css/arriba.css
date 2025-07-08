@@ -1,0 +1,95 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Evita desbordamientos horizontales */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Estilo general del cuerpo */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
+  color: #f0f0f0;
+  line-height: 1.6;
+  padding: 0;
+}
+
+/* Navegación */
+nav {
+  background-color: #1f1f1f;
+  padding: 14px 28px;
+  border-radius: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+/* Enlaces de navegación */
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: #00ffcc;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ffffff;
+}
+
+/* Íconos sociales */
+.social-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #00ffcc88;
+}.nav-links li a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #00ffcc;
+  transition: width 0.3s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+.nav-links li a.active {
+  color: #ffffff;
+  text-shadow: 0 0 8px #00ffcc;
+}
+nav {
+  transition: background-color 0.3s ease;
+}
+
+.nav-links li a {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}

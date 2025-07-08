@@ -1,0 +1,256 @@
+/* Base */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #0f0f0f;
+  color: #f0f0f0;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #0ff, #00f);
+  padding: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  animation: fadeIn 1s ease-in;
+}
+
+/* Tabs */
+.tabs {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.tabs input[type="radio"] {
+  display: none;
+}
+
+.tabs label {
+  background: #222;
+  color: #0ff;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.tabs input[type="radio"]:checked + label {
+  background: #0ff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+.tab-content {
+  display: none;
+  margin-top: 1rem;
+  animation: fadeInUp 0.8s ease;
+}
+
+#tab-arte:checked ~ #content-arte,
+#tab-juegos:checked ~ #content-juegos,
+#tab-retos:checked ~ #content-retos {
+  display: block;
+}
+
+/* Post */
+.post {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid #0ff;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1s ease;
+}
+
+/* Comment Box */
+.comment-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.user-avatar {
+  font-size: 1.5rem;
+}
+
+textarea {
+  flex: 1;
+  padding: 0.5rem;
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #0ff;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+/* Buttons */
+button,
+.btn-glow {
+  background: linear-gradient(90deg, #0ff, #00f);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #0ff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover,
+.btn-glow:hover {
+  background: #0ff;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #0ff;
+}
+
+/* Glow Box */
+.glow-box {
+  background: #1a1a1a;
+  border: 2px solid #f0f;
+  box-shadow: 0 0 10px #f0f;
+  border-radius: 10px;
+  padding: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.glow-box:hover {
+  transform: scale(1.03);
+}
+
+/* Icon */
+.icon {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.icon:hover {
+  transform: rotate(5deg);
+  filter: drop-shadow(0 0 5px #0ff);
+}
+
+/* Links */
+a {
+  color: #0cf;
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Reactions */
+.reactions {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header {
+    font-size: 1.5rem;
+  }
+
+  .tabs {
+    padding: 1rem;
+  }
+
+  .tabs label {
+    display: block;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  button,
+  .btn-glow {
+    width: 100%;
+  }
+
+  textarea {
+    font-size: 0.9rem;
+  }
+
+  .post {
+    padding: 0.8rem;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
+
+  header {
+    font-size: 1.4rem;
+    padding: 0.8rem;
+    line-height: 1.2;
+  }
+
+  .tabs {
+    padding: 1rem 0.5rem;
+  }
+
+  .tabs label {
+    display: block;
+    width: 100%;
+    margin: 0.3rem 0;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+
+  .tab-content {
+    margin-top: 1rem;
+  }
+
+  .post {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .comment-box {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .user-avatar {
+    font-size: 1.2rem;
+    align-self: flex-start;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  button,
+  .btn-glow {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+
+  .reactions {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+}
