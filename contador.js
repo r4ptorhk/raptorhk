@@ -4,14 +4,12 @@ import {
   doc,
   setDoc,
   getDoc,
-  updateDoc,
-  serverTimestamp,
-  increment,
   collection,
-  getCountFromServer
+  getCountFromServer,
+  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// 🔧 Configuración de Firebase (reemplaza con tus claves reales)
+// 🔧 Configuración de Firebase
 const firebaseConfig = {
   apiKey: "TU_API_KEY",
   authDomain: "raptorhk-6a180.firebaseapp.com",
@@ -38,24 +36,22 @@ function getDeviceId() {
 const deviceId = getDeviceId();
 const docRef = doc(db, "visitas", deviceId);
 
-// 📈 Registrar o actualizar visitas del dispositivo
+// 📈 Registrar solo la primera visita del dispositivo
 const docSnap = await getDoc(docRef);
-if (docSnap.exists()) {
-  await updateDoc(docRef, {
-    visitas: increment(1),
-    ultimaVisita: serverTimestamp()
-  });
-} else {
+if (!docSnap.exists()) {
   await setDoc(docRef, {
     visitas: 1,
-    ultimaVisita: serverTimestamp()
+    primeraVisita: serverTimestamp()
   });
 }
 
 // 👁️ Mostrar visitas de este dispositivo
 const updatedSnap = await getDoc(docRef);
-const visitas = updatedSnap.data().visitas;
-document.getElementById("contador").innerText = `Tus visitas: ${visitas}`;
+const visitas = updatedSnap.exists() ? updatedSnap.data().visitas : 0;
+const contador = document.getElementById("contador");
+if (contador) {
+  contador.innerText = `Tus visitas: ${visitas}`;
+}
 
 // 🌍 Mostrar total de dispositivos únicos
 const visitasCollection = collection(db, "visitas");
