@@ -1,8 +1,7 @@
-// Importar Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, doc, updateDoc, increment, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp, increment } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// Configuración de Firebase (reemplaza con tus datos reales)
+// Configuración de Firebase
 const firebaseConfig = {
   apiKey: "TU_API_KEY",
   authDomain: "raptorhk-6a180.firebaseapp.com",
@@ -12,23 +11,39 @@ const firebaseConfig = {
   appId: "TU_APP_ID"
 };
 
-// Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Referencia al documento del contador
-const contadorRef = doc(db, "visitas", "contador");
-
-// Incrementar el contador
-await updateDoc(contadorRef, {
-  total: increment(1)
-});
-
-// Leer y mostrar el número de visitas
-const docSnap = await getDoc(contadorRef);
-if (docSnap.exists()) {
-  const visitas = docSnap.data().total;
-  document.getElementById("contador").innerText = `Visitas: ${visitas}`;
-} else {
-  document.getElementById("contador").innerText = "No se encontró el contador.";
+// Generar o recuperar ID único del dispositivo
+function getDeviceId() {
+  let id = localStorage.getItem("device_id");
+  if (!id) {
+    id = crypto.randomUUID();
+    localStorage.setItem("device_id", id);
+  }
+  return id;
 }
+
+const deviceId = getDeviceId();
+const docRef = doc(db, "visitas", deviceId);
+
+// Verificar si ya existe
+const docSnap = await getDoc(docRef);
+if (docSnap.exists()) {
+  // Ya existe: incrementar visitas
+  await updateDoc(docRef, {
+    visitas: increment(1),
+    ultimaVisita: serverTimestamp()
+  });
+} else {
+  // Nuevo dispositivo
+  await setDoc(docRef, {
+    visitas: 1,
+    ultimaVisita: serverTimestamp()
+  });
+}
+
+// Mostrar visitas de este dispositivo
+const updatedSnap = await getDoc(docRef);
+const visitas = updatedSnap.data().visitas;
+document.getElementById("contador").innerText = `Tus visitas: ${visitas}`;
