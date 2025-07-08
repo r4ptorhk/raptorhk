@@ -1,0 +1,201 @@
+/* General */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0d0d0d;
+  color: #f0f0f0;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+/* Enlaces */
+a {
+  color: #00bfff;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background: linear-gradient(135deg, #1f1f1f, #2a005f);
+  box-shadow: 0 0 25px #8f00ff;
+  animation: fadeInUp 1s ease;
+}
+header h1 {
+  font-size: 2.8rem;
+  color: #00ffe1;
+  text-shadow: 0 0 12px #00ffe1;
+}
+header p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* Formulario */
+.formulario {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ffe1;
+  animation: fadeIn 1s ease-in;
+}
+.formulario h2 {
+  color: #ff00cc;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+input, textarea, select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  background: #2a2a2a;
+  color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 8px #00ffe1;
+  outline: none;
+}
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Botones */
+button, .btn-glow {
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.5rem;
+  background: linear-gradient(135deg, #00ffe1, #ff00cc);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #ff00cc;
+  animation: pulseGlow 2s infinite alternate;
+}
+button:hover, .btn-glow:hover {
+  background: linear-gradient(135deg, #00bfa6, #ff33cc);
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #ff00cc;
+}
+
+/* Glow Box */
+.glow-box {
+  background: #1a1a1a;
+  border: 2px solid #ff00cc;
+  box-shadow: 0 0 15px #ff00cc;
+  border-radius: 10px;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.glow-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px #ff33cc;
+}
+
+/* Iconos */
+.icon {
+  display: inline-block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.icon:hover {
+  transform: rotate(8deg) scale(1.1);
+  filter: drop-shadow(0 0 6px #00ffe1);
+}
+
+/* Ideas */
+.ideas {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+.idea {
+  background: #1f1f1f;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 5px solid #ff00cc;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease;
+}
+.idea:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 12px #ff00cc;
+}
+
+/* Votos */
+.votos {
+  margin-top: 0.8rem;
+  font-size: 1.6rem;
+  display: flex;
+  gap: 1.2rem;
+  cursor: pointer;
+}
+.votos span {
+  transition: transform 0.2s ease;
+}
+.votos span:hover {
+  transform: scale(1.3);
+}
+.votado {
+  filter: drop-shadow(0 0 5px #00ffe1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #111;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseGlow {
+  from { box-shadow: 0 0 10px #ff00cc; }
+  to { box-shadow: 0 0 25px #ff00cc; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .formulario, .ideas {
+    padding: 1rem;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+  header p, .formulario h2 {
+    font-size: 1rem;
+  }
+  .votos {
+    font-size: 1.3rem;
+  }
+  button, .btn-glow {
+    width: 100%;
+  }
+}
