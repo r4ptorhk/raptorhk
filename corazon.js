@@ -23,6 +23,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// Generar o recuperar un ID único por dispositivo
+let deviceId = localStorage.getItem("deviceId");
+if (!deviceId) {
+  deviceId = crypto.randomUUID();
+  localStorage.setItem("deviceId", deviceId);
+}
+
 // Espera a que el DOM esté listo
 window.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".like-checkbox").forEach((checkbox, i) => {
@@ -45,13 +52,21 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Manejar clic en el checkbox
     checkbox.addEventListener("change", async () => {
-      const snapshot = await getDocs(q);
+      const userLikeQuery = query(
+        collection(db, "corazon"),
+        where("imageId", "==", imageId),
+        where("deviceId", "==", deviceId)
+      );
+      const snapshot = await getDocs(userLikeQuery);
 
       if (checkbox.checked) {
-        await addDoc(collection(db, "corazon"), {
-          imageId,
-          timestamp: new Date()
-        });
+        if (snapshot.empty) {
+          await addDoc(collection(db, "corazon"), {
+            imageId,
+            deviceId,
+            timestamp: new Date()
+          });
+        }
         localStorage.setItem(localKey, "true");
       } else {
         snapshot.forEach(doc => deleteDoc(doc.ref));
