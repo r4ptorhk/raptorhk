@@ -1,7 +1,17 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, doc, setDoc, getDoc, updateDoc, serverTimestamp, increment } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  updateDoc,
+  serverTimestamp,
+  increment,
+  collection,
+  getCountFromServer
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// Configuración de Firebase
+// 🔧 Configuración de Firebase (reemplaza con tus claves reales)
 const firebaseConfig = {
   apiKey: "TU_API_KEY",
   authDomain: "raptorhk-6a180.firebaseapp.com",
@@ -11,10 +21,11 @@ const firebaseConfig = {
   appId: "TU_APP_ID"
 };
 
+// 🔌 Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Generar o recuperar ID único del dispositivo
+// 🆔 Obtener o generar ID único del dispositivo
 function getDeviceId() {
   let id = localStorage.getItem("device_id");
   if (!id) {
@@ -27,23 +38,30 @@ function getDeviceId() {
 const deviceId = getDeviceId();
 const docRef = doc(db, "visitas", deviceId);
 
-// Verificar si ya existe
+// 📈 Registrar o actualizar visitas del dispositivo
 const docSnap = await getDoc(docRef);
 if (docSnap.exists()) {
-  // Ya existe: incrementar visitas
   await updateDoc(docRef, {
     visitas: increment(1),
     ultimaVisita: serverTimestamp()
   });
 } else {
-  // Nuevo dispositivo
   await setDoc(docRef, {
     visitas: 1,
     ultimaVisita: serverTimestamp()
   });
 }
 
-// Mostrar visitas de este dispositivo
+// 👁️ Mostrar visitas de este dispositivo
 const updatedSnap = await getDoc(docRef);
 const visitas = updatedSnap.data().visitas;
 document.getElementById("contador").innerText = `Tus visitas: ${visitas}`;
+
+// 🌍 Mostrar total de dispositivos únicos
+const visitasCollection = collection(db, "visitas");
+const snapshot = await getCountFromServer(visitasCollection);
+const totalDispositivos = snapshot.data().count;
+
+const totalDiv = document.createElement("p");
+totalDiv.innerText = `Dispositivos únicos: ${totalDispositivos}`;
+document.body.appendChild(totalDiv);
