@@ -8,7 +8,7 @@ Proyecto universitario para mostrar habilidades en desarrollo web y diseño visu
 - Firebase Firestore
 
 ## 📷 Captura de pantalla
-![Captura de pantalla](https://i.postimg.cc/JzPQ0t3j/Captura-de-pantalla-2025-07-06-153153.png)
+![Captura de pantalla](https://i.postimg.cc/CKJxfFhB/logo.png)
 
 ## 📬 Contacto
 Sígueme en Instagram: [@artken.n](https://instagram.com/artken.n)  
