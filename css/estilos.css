@@ -225,4 +225,131 @@ a:hover {
 .comment-form input[type="text"]:focus {
   outline: none;
   box-shadow: 0 0 15px #00ffcc;
+}.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* Espaciado entre los botones */
+  justify-content: flex-start; /* ← Esto los alinea a la izquierda */
+  margin-top: 20px;
+}
+/* 🎯 Estilo base con tamaño reducido */
+.logo-epico {
+  width: 200px; /* Ajusta a tu preferencia */
+  animation: logoGlowLoop 3s infinite ease-in-out;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* ✨ Hover con realce adicional */
+.logo-epico:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 24px #ff66cc);
+}
+
+/* 🌟 Animación de entrada con desvanecimiento + escalado */
+@keyframes logoPulseFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 16px #00ffcc);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 12px #00ffcc);
+  }
+}
+
+/* 💖 Glow respirante con tono dinámico */
+@keyframes logoGlowLoop {
+  0%, 100% {
+    filter: drop-shadow(0 0 12px #00ffcc);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px #ff66cc);
+  }
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+.bienvenida-con-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.texto-bienvenida {
+  flex: 1;
+  min-width: 250px;
+}
+
+.logo-wrapper {
+  flex: 0 0 auto;
+}
+.logo-epico {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 600px) {
+  .bienvenida-con-logo {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-epico {
+    max-width: 180px;
+    margin-bottom: 10px;
+  }
+}
+.logo-wrapper {
+  flex: 0 0 auto;
+  align-self: flex-end; /* lo empuja hacia abajo */
+  margin-top: 20px;      /* espacio extra desde arriba */
+}
+.logo-wrapper {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  margin-top: 100px; /* aumenta este valor si quieres bajarlo más */
+}
+.logo-wrapper {
+  transition: margin-top 0.4s ease;
+}
+@media (max-width: 600px) {
+  .logo-wrapper {
+    margin-top: 30px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .logo-epico {
+    max-width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 600px) {
+  .bienvenida-con-logo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-wrapper {
+    margin-top: 30px;
+  }
+
+  .logo-epico {
+    max-width: 180px;
+  }
 }
