@@ -3,7 +3,7 @@ Proyecto universitario para mostrar habilidades en desarrollo web y diseño visu
 
 ## 🛠️ Tecnologías usadas
 - HTML5
-- CSS3
+- CSS
 - JavaScript
 - Firebase Firestore
 
