@@ -1,5 +1,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  onSnapshot,
+  query,
+  orderBy,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 // 🔧 Configuración de Firebase
 const firebaseConfig = {
@@ -27,7 +35,7 @@ document.getElementById("comentario-form").addEventListener("submit", async (e) 
       await addDoc(comentariosRef, {
         nombre,
         mensaje,
-        timestamp: new Date()
+        timestamp: serverTimestamp()
       });
       e.target.reset();
     } catch (error) {
@@ -44,7 +52,11 @@ onSnapshot(q, (snapshot) => {
   container.innerHTML = "";
   snapshot.forEach((doc) => {
     const data = doc.data();
-    const fecha = new Date(data.timestamp.seconds * 1000).toLocaleString();
+    let fecha = "Fecha desconocida";
+
+    if (data.timestamp && data.timestamp.toDate) {
+      fecha = data.timestamp.toDate().toLocaleString();
+    }
 
     const div = document.createElement("div");
     div.className = "comentario";
